@@ -15,5 +15,5 @@ import wad.domain.Category;
  * @author mmohamud
  */
 public interface CategoryRepository extends JpaRepository<Category, Long> {
-List<Category> findByName(String nimi);
+List<Category> findByNimi(String nimi);
 }

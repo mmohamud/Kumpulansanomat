@@ -15,5 +15,5 @@ import wad.domain.Writer;
  * @author mmohamud
  */
 public interface WriterRepository extends JpaRepository<Writer, Long>{
-    List<Writer> findByName(String nimi);
+    List<Writer> findByNimi(String nimi);
 }
