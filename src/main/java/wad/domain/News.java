@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,7 @@ public class News extends AbstractPersistable<Long> {
     
     private String otsikko;
     private String ingressi;
+    @Column(length = 10000)
     private String teksti;
     private LocalDateTime julkaisuaika;
     private int klikkaukset = 0;

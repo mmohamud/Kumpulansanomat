@@ -10,6 +10,7 @@
         </style>
         <meta charset="UTF-8" />
         <title>Kumpulan Sanomat</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -22,24 +23,19 @@
         </br>
         </br>
         </br>
-        <h1>Lisää kirjoittaja</h1>
+        <h1>Lisää kategoria</h1>
         
         </br>
         </br>
+        <li th:each="error: ${errors}"
+            <li><a span style="color:red" th:text="${error}"></a></li>
+        </br>
+        </li>
         </br>
         </br>
         
-        <form th:action="@{/addWriter}" method="POST">
-            <label>Lisää uusi kategoria</label></br>
-            <input type="text" name="nimi" id="nimi"/>
-            </br>
-            </br>
-            <input type="submit" value="Lisää kirjoittaja"/>
-        </form>
-        
-        </br>
-        </br>
-        </br>
+
+
 
         <form th:action="@{/addCategory}" method="POST">               
             <label>Lisää uusi kategoria</label></br>

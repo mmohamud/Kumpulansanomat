@@ -24,7 +24,11 @@
         </br>
         </br>
         <h1>Lisää uutinen</h1>
+        
+        <li th:each="error: ${errors}"
+            <li><a span style="color:red" th:text="${error}"></a></li>
         </br>
+        </li>
         </br>
         <form th:action="@{/addNews}" method="POST" enctype="multipart/form-data" id="addNews"> 
             <label>Otsikko</label></br>
@@ -49,22 +53,7 @@
                 </br>
         </form>
 
-        <form th:action="@{/addCategory}" method="POST">               
-            <label>Lisää uusi kategoria</label></br>
-            <input type="text" name="nimi" id="nimi"/>
-            </br>
-            </br>
-            <input type="submit" value="Lisää kategoria"/>
-        </form>
-        </br>
-        </br>
-        <form th:action="@{/addWriter}" method="POST">
-            <label>Lisää uusi kirjoittaja!</label></br>
-            <input type="text" name="nimi" id="nimi"/>
-            </br>
-            </br>
-            <input type="submit" value="Lisää kirjoittaja"/>
-        </form>
+        
         </br>
         </br>
         </br>

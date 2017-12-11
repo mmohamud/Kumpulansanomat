@@ -31,9 +31,11 @@ public class WriterController {
     @PostMapping("/addWriter")
     public String addWriter(@RequestParam String nimi) {
         Writer writer = new Writer();
+        nimi.toLowerCase();
+        nimi.trim();
         writer.setNimi(nimi);
         writerRepository.save(writer);
-        return "redirect:/addNews";
+        return "redirect:/";
     }
 
     
