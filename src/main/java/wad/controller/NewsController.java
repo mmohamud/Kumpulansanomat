@@ -173,7 +173,6 @@ public class NewsController {
         kuva.setKoko(img.getSize());
         kuva.setMediaTyyppi(img.getContentType());
         kuva.setUutiset(news);
-        kuva.setJulkaisuaika(LocalDateTime.now());
         fileRepository.save(kuva);
         messages.add("Uutinen lisätty!");
         model.addAttribute("message", messages);

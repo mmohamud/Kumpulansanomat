@@ -33,11 +33,7 @@
             <li><a href="#" th:href="@{/addWriter}">Lisää uusi kirjoittaja</a></li>     
             </ul>
       </li>
-            
-
-            
-          
-          <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
               
               <li th:if="${session.writer}">
               <a href="#" th:href="@{/logout}">Kirjaudu ulos</a>              
@@ -54,7 +50,7 @@
             </li>
             
             
-            
+            <li
              <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
             </li>
           </ul>
