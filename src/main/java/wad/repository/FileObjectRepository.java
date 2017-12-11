@@ -5,17 +5,16 @@
  */
 package wad.repository;
 
-import java.io.Serializable;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import wad.domain.Writer;
+import org.springframework.transaction.annotation.Transactional;
+import wad.domain.FileObject;
+import wad.domain.News;
 
 /**
  *
  * @author mmohamud
  */
-@Repository
-public interface WriterRepository extends JpaRepository<Writer, Long>{
-    Writer findBykayttajatunnus(String kayttajatunnus);
+public interface FileObjectRepository extends JpaRepository<FileObject, Long> {
+    @Transactional
+    FileObject findByuutiset(News uutiset);
 }

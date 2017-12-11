@@ -5,10 +5,12 @@
  */
 package wad.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
+import javax.persistence.Basic;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.FetchType;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,10 +24,16 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Writer extends AbstractPersistable<Long> {
+public class FileObject extends AbstractPersistable<Long>{
+
     private String nimi;
-    private String kayttajatunnus;
-    private String salasana;
-    @ManyToMany
-    private List<News> uutiset = new ArrayList();
+    private String mediaTyyppi;
+    private Long koko;
+    private LocalDateTime julkaisuaika;
+    @OneToOne
+    private News uutiset;
+
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    private byte[] sisalto;
 }

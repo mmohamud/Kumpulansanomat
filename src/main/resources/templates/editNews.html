@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <style>
+            ul {
+                text-align: center;
+                list-style-type: none;
+            }
+        </style>
+        <meta charset="UTF-8" />
+        <title>Kumpulan Sanomat</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"/>
+
+
+
+        </br>
+        </br>
+        </br>
+        <h1>Muokkaa uutista</h1>
+        </br>
+        </br>
+        <form th:action="@{/news/{Id}/edit(Id=${uutinen.Id})}" method="POST" enctype="multipart/form-data" id="updateNewsNews"> 
+            <label>Otsikko</label></br>
+            <input type="text" name="otsikko" id="otsikko" th:value="${uutinen.otsikko}"/><br/>
+            <label>Ingressi</br>
+                <input type="text" name="ingressi" id="ingressi" th:value="${uutinen.ingressi}"/><br/>
+                <label>Teksti</label></br>
+                <textarea name="teksti" id="teksti" th:text="${uutinen.teksti}"></textarea></br>
+                <label>Kuva</label></br>
+                <input type="file" name="img" id="img"/></br>                
+                <label>Kirjoittajat</label><br/>
+                <select name="kirjoittajat" form="updateNewsNews" multiple="true">
+                    <option th:each="kirjoittaja:${kirjoittajat}" th:value="${kirjoittaja.id}" th:text="${kirjoittaja.nimi}" selected="selected">name</option>
+                </select><br/>
+                <label>Kategoria</label><br/>
+                <select name="kategoriat" form="updateNewsNews" multiple="true">
+                    <option th:each="kategoria:${kategoriat}" th:value="${kategoria.id}" th:text="${kategoria.nimi}" selected="selected">name</option>
+                </select></br>        
+                <input type="submit" value="Päivitä uutinen!"/>
+                </br>
+                </br>
+                </br>
+        </form>
+        
+        </br>
+        </br>
+        
+        </br>
+        </br>
+        </br>
+        </br>
+    </body>
+</html>

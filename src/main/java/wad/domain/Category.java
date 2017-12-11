@@ -23,6 +23,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Data
 public class Category extends AbstractPersistable<Long>{
     private String nimi;
-    @ManyToMany
+    @ManyToMany(mappedBy = "kategoriat")
     private List<News> uutiset;
 }

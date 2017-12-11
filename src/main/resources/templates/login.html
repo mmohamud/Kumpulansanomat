@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <style>
+            input[type=text] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: 3px solid #ccc;
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
+                outline: none;
+            }
+            input[type=password] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: 3px solid #ccc;
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
+                outline: none;
+            }
+
+            input[type=text]:focus {
+                border: 3px solid #555;
+            }
+            input[type=password]:focus {
+                border: 3px solid #555;
+            }
+
+        </style>
+        <meta charset="UTF-8" />
+        <title>Kumpulan Sanomat</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"/>
+        <div>
+
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            <h2>Rekisteröidy</h2>
+            </br>
+            <form th:action="@{/login}" method="POST">                
+                Kayttajatunnus <input type="text" name="kayttajatunnus" id="kayttajatunnus"/><br/>
+                Salasana <input type="password" name="salasana" id="salasana"/><br/>
+                <input type="submit" value="Kirjaudu sisään"/>                 
+            </form>
+</br>
+            <tr th:each="message : ${messages}">  
+                <td th:text="${message}"></td>
+            </tr>
+        </div>
+    </body>
+
+</html>

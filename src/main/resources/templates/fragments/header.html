@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" th:fragment="header">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Kumpulan Sanomat</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">           
+            <li th:classappend="${module == 'tasks' ? 'active' : ''}">
+              <a href="#" th:href="@{/news}">Uutiset</a>              
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategoriat <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li th:each="kategoria: ${kategoriat}"
+          <li><a href="#" th:href="@{/category?category={kategoria}(kategoria=${kategoria.nimi})}"th:text="${kategoria.nimi}">Nimi</a></li>
+        </ul>
+      </li>
+            <li th:if="${session.writer}" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Moderointi <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            
+            <li><a href="#" th:href="@{/addNews}">Lisää uutinen</a></li>
+            <li><a href="#" th:href="@{/addCategory}">Lisää uusi kategoria</a></li>
+            <li><a href="#" th:href="@{/addWriter}">Lisää uusi kirjoittaja</a></li>     
+            </ul>
+      </li>
+            
+
+            
+          
+          <ul class="nav navbar-nav navbar-right">
+              
+              <li th:if="${session.writer}">
+              <a href="#" th:href="@{/logout}">Kirjaudu ulos</a>              
+            </li>
+            
+            
+            
+            <li th:unless="${session.writer}">
+              <a href="#" th:href="@{/register}">Rekisteröidy</a>
+            </li>
+            
+            <li th:unless="${session.writer}">
+              <a href="#" th:href="@{/login}">Kirjaudu sisään</a>
+            </li>
+            
+            
+            
+             <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

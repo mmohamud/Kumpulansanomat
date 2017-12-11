@@ -8,12 +8,15 @@ package wad.repository;
 import java.io.Serializable;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import wad.domain.Category;
 
 /**
  *
  * @author mmohamud
  */
+@Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
-List<Category> findByNimi(String nimi);
+    public Category findByNimi(String nimi);
+
 }

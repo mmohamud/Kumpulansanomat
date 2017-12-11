@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <style>
+            ul {
+                text-align: center;
+                list-style-type: none;
+            }
+        </style>
+        <meta charset="UTF-8" />
+        <title>Kumpulan Sanomat</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"/>
+
+
+
+        </br>
+        </br>
+        </br>
+        <h1>Lisää kirjoittaja</h1>
+        
+        </br>
+        </br>
+        </br>
+        </br>
+        
+        <form th:action="@{/addWriter}" method="POST">
+            <label>Lisää uusi kirjoittaja</label></br>
+            <input type="text" name="nimi" id="nimi"/>
+            </br>
+            </br>
+            <input type="submit" value="Lisää kirjoittaja"/>
+        </form>
+        
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>

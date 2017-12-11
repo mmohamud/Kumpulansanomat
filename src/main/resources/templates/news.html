@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <style>
+            ul {
+                text-align: center;
+                list-style-type: none;
+            }
+        </style>
+        <meta charset="UTF-8" />
+        <title>Kumpulan Sanomat</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"/>
+        </br>
+        </br>
+        </br>
+        </br>
+        <form 
+            th:if="${session.writer}"
+            th:method="delete" th:action="@{/news/{id}/delete(id=${uutinen.id})}" style="display: inline-block;">
+            <button type="submit" class="btn btn-danger">Poista</button>
+            <a th:href="@{/news/{id}/edit(id=${uutinen.id})}" class="btn btn-default">Muokkaa</a>   
+        </form>
+            
+            <h2 th:text="${uutinen.otsikko}"></h2>
+            </br>
+            <article>
+                <p th:text="${uutinen.teksti}"></p>
+            </article>
+            </br>
+            <img th:src="@{/images/{id}(id=${uutinen.id})}"/>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            <p>Luettu <span style="color:red" th:text="${uutinen.klikkaukset}"/> kertaa</p>
+    </body>
+</html>

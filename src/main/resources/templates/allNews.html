@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <style>
+            ul {
+                text-align: center;
+                list-style-type: none;
+            }
+        </style>
+        <meta charset="UTF-8" />
+        <title>Kumpulan Sanomat</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"/>
+        </br>
+        </br>
+        </br>
+        </br>
+
+        <article
+            th:each="uutinen : ${kaikkiUutiset}">
+            <h3><a href="#" th:href="@{/news/{id}(id=${uutinen.id})}" th:text="${uutinen.otsikko}">Otsikko</a></h3>
+            <p th:text="${uutinen.ingressi}"/>
+            <img th:src="@{/images/{id}(id=${uutinen.id})}"/>
+        </article>
+    </body>
+</html>

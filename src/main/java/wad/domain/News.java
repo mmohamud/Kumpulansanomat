@@ -6,6 +6,8 @@
 package wad.domain;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -26,13 +28,12 @@ public class News extends AbstractPersistable<Long> {
     
     private String otsikko;
     private String ingressi;
-    private byte[] kuva;
     private String teksti;
-    private LocalDate julkaisuaika;
-    private int klikkaukset;
+    private LocalDateTime julkaisuaika;
+    private int klikkaukset = 0;
     @ManyToMany(mappedBy = "uutiset")
-    private List<Writer> kirjoittajat;
-    @ManyToMany(mappedBy = "uutiset")
-    private List<Category> kategoriat;
+    private List<Writer> kirjoittajat = new ArrayList();
+    @ManyToMany
+    private List<Category> kategoriat = new ArrayList();
     
 }
