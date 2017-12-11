@@ -29,7 +29,6 @@ public class FileObject extends AbstractPersistable<Long>{
     private String nimi;
     private String mediaTyyppi;
     private Long koko;
-    private LocalDateTime julkaisuaika;
     @OneToOne
     private News uutiset;
 
