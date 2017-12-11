@@ -45,7 +45,7 @@ public class DemoApplication {
             return () -> {
             Writer writer = new Writer();
             writer.setNimi("Testi Kayttaja");
-            writer.setKayttajatunnus("ouzii");
+            writer.setKayttajatunnus("kayttaja");
             writer.setSalasana("12345");
             writerRepository.save(writer);
             };
